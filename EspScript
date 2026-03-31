@@ -1,0 +1,24 @@
+local function createESP(v)
+    if game.Players:GetPlayerFromCharacter(v) then return end
+
+    -- DETEKSI LEBIH LUAS
+    if v:IsA("Model") then
+        
+        local root = v:FindFirstChild("HumanoidRootPart") 
+                  or v:FindFirstChild("Head") 
+                  or v:FindFirstChildWhichIsA("BasePart")
+
+        if root then
+            
+            if v:FindFirstChild("ESP_HIGHLIGHT") then return end
+
+            local highlight = Instance.new("Highlight")
+            highlight.Name = "ESP_HIGHLIGHT"
+            highlight.FillColor = Color3.fromRGB(255,0,0)
+            highlight.FillTransparency = 0.5
+            highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+            
+            highlight.Parent = v
+        end
+    end
+end
