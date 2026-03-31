@@ -1,0 +1,19 @@
+local players = game:GetService("Players")
+local player = players.LocalPlayer
+
+-- UI
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "ESP_UI"
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0,150,0,60)
+frame.Position = UDim2.new(0.4,0,0.3,0)
+frame.BackgroundColor3 = Color3.fromRGB(40,40,40)
+frame.Active = true
+frame.Draggable = true
+
+local toggle = Instance.new("TextButton", frame)
+toggle.Size = UDim2.new(1,0,1,0)
+toggle.Text = "ESP: ON"
+
+local espOn = true
